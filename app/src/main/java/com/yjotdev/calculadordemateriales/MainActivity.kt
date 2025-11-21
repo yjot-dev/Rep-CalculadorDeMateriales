@@ -1,0 +1,57 @@
+package com.yjotdev.calculadordemateriales
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.graphics.Color
+import android.os.Build
+import android.view.WindowManager
+import androidx.activity.SystemBarStyle
+import androidx.core.view.WindowCompat
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import dagger.hilt.android.AndroidEntryPoint
+import com.yjotdev.calculadordemateriales.application.mvvm.view.MenuFragment
+import com.yjotdev.calculadordemateriales.databinding.ActivityMainBinding
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Ajusta la vista a toda la pantalla
+        viewEdgeToEdge()
+        // Configura la IU de la actividad
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        // Si es la primera vez que se crea, muestra el MenuFragment
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentMenu, MenuFragment())
+                .commit()
+        }
+    }
+
+    private fun viewEdgeToEdge(){
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(
+                lightScrim = Color.TRANSPARENT,
+                darkScrim = Color.TRANSPARENT
+            ),
+            navigationBarStyle = SystemBarStyle.auto(
+                lightScrim = Color.TRANSPARENT,
+                darkScrim = Color.TRANSPARENT
+            )
+        )
+        WindowCompat.getInsetsController(window, window.decorView).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            window.attributes.layoutInDisplayCutoutMode =
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        }
+    }
+}
