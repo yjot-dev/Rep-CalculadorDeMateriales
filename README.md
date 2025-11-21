@@ -1,4 +1,4 @@
-# APP LOGIN
+# CALCULADORA DE MATERIALES (CdM)
 Esta app permite calcular el número de ladrillos necesarios para construir una 
 pared y el número de baldosas necesarias para instalarlas en el piso, si se está 
 en la opción pared se solicita ingresar sus dimensiones (alto y largo), así como 
