@@ -31,9 +31,7 @@ class ParedFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding.rbLadrillo.isChecked = true
-        binding.rbAparejoSoga.isChecked = true
+        super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
         observeViewModelState()
     }
@@ -61,6 +59,8 @@ class ParedFragment : Fragment() {
     }
 
     private fun observeViewModelState() {
+        binding.rbLadrillo.isChecked = true
+        binding.rbAparejoSoga.isChecked = true
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { uiState ->

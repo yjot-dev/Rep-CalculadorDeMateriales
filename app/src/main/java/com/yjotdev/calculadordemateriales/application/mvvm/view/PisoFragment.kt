@@ -32,7 +32,7 @@ class PisoFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
         observeViewModelState()
     }

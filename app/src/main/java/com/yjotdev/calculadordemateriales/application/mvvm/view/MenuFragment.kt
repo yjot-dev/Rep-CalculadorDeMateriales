@@ -28,14 +28,14 @@ class MenuFragment : Fragment(), Navigation {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Aplicar tema
+        colorThemeManager()
         // Navegación interna del menú
         setupClickListeners()
         // Navegación al Login por default
         if (savedInstanceState == null) {
             navigateTo(1)
         }
-        // Tema inicial por default
-        colorThemeManager()
     }
 
     override fun navigateTo(destination: Int) {
@@ -58,25 +58,27 @@ class MenuFragment : Fragment(), Navigation {
         binding.btnPiso.setOnClickListener { navigateTo(2) }
         binding.btnModo.setOnClickListener {
             val saveState = requireActivity().getSharedPreferences("saveState", Context.MODE_PRIVATE)
-            val theme = saveState.getInt("theme", 1)
-            saveState.edit {
-                if (theme == 1) {
-                    putInt("theme", 2)
-                } else {
-                    putInt("theme", 1)
-                }
+            //Detecta el modo actual del app
+            val currentNightMode = AppCompatDelegate.getDefaultNightMode()
+            //Logica de cambio de modo
+            val newMode = if (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                AppCompatDelegate.MODE_NIGHT_NO
+            } else {
+                AppCompatDelegate.MODE_NIGHT_YES
             }
-            colorThemeManager() //Aplica los cambios del tema
+            //Guarda preferencia
+            saveState.edit {
+                putInt("theme", newMode)
+            }
+            //Aplica los cambios
+            AppCompatDelegate.setDefaultNightMode(newMode)
         }
     }
 
     private fun colorThemeManager(){
         val saveState = requireActivity().getSharedPreferences("saveState", Context.MODE_PRIVATE)
-        val theme = saveState.getInt("theme", 1)
-        if(theme == 2){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
+        //Recupera preferencia
+        val savedMode = saveState.getInt("theme", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        AppCompatDelegate.setDefaultNightMode(savedMode)
     }
 }
