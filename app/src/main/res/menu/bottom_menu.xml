@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/paredFragment"
+        android:title="@string/button_pared"
+        android:icon="@drawable/pared_70" />
+
+    <item
+        android:id="@+id/pisoFragment"
+        android:title="@string/button_piso"
+        android:icon="@drawable/baldosa_70" />
+
+    <item
+        android:id="@+id/btnModo"
+        android:title="@string/button_modo"
+        android:icon="@drawable/modo_70" />
+</menu>

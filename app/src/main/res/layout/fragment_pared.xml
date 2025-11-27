@@ -60,8 +60,8 @@
     <RadioGroup
         android:layout_column="0"
         android:layout_row="4"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginTop="@dimen/short2_dp"
+        android:layout_marginStart="@dimen/short3_dp"
         android:layout_gravity="start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -78,8 +78,8 @@
     <RadioGroup
         android:layout_column="1"
         android:layout_row="4"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="@dimen/short2_dp"
+        android:layout_marginEnd="@dimen/short3_dp"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

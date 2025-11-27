@@ -8,30 +8,69 @@ import android.view.WindowManager
 import androidx.activity.SystemBarStyle
 import androidx.core.view.WindowCompat
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.NavigationUI
 import dagger.hilt.android.AndroidEntryPoint
-import com.yjotdev.calculadordemateriales.application.mvvm.view.MenuFragment
 import com.yjotdev.calculadordemateriales.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Aplicar tema
+        colorThemeManager()
         // Ajusta la vista a toda la pantalla
         viewEdgeToEdge()
         // Configura la IU de la actividad
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Si es la primera vez que se crea, muestra el MenuFragment
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentMenu, MenuFragment())
-                .commit()
+        // Inicializa el NavController
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragmentNav) as NavHostFragment
+        navController = navHostFragment.navController
+        // Vincula NavController con el BottomMenu
+        binding.bottomMenu.setupWithNavController(navController)
+        // Logica del BottomMenu para el boton tel tema
+        binding.bottomMenu.setOnItemSelectedListener { item ->
+            if (item.itemId == R.id.btnModo) {
+                toggleTheme()
+                false
+            } else {
+                NavigationUI.onNavDestinationSelected(item, navController)
+                true
+            }
         }
+    }
+
+    private fun toggleTheme() {
+        val saveState = this.getSharedPreferences("saveState", MODE_PRIVATE)
+        val currentNightMode = AppCompatDelegate.getDefaultNightMode()
+        val newMode = if (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+            AppCompatDelegate.MODE_NIGHT_NO
+        } else {
+            AppCompatDelegate.MODE_NIGHT_YES
+        }
+        saveState.edit {
+            putInt("theme", newMode)
+        }
+        AppCompatDelegate.setDefaultNightMode(newMode)
+    }
+
+    private fun colorThemeManager(){
+        val saveState = this.getSharedPreferences("saveState", MODE_PRIVATE)
+        //Recupera preferencia
+        val savedMode = saveState.getInt("theme", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        AppCompatDelegate.setDefaultNightMode(savedMode)
     }
 
     private fun viewEdgeToEdge(){
