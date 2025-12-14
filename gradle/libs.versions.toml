@@ -9,6 +9,8 @@ espressoCore = "3.6.1"
 appcompat = "1.7.1"
 material = "1.13.0"
 activity = "1.10.0"
+coroutines = "1.7.3"
+arch-core = "2.2.0"
 fragmentKtx = "1.8.9"
 navVersion = "2.8.5"
 hilt = "2.51.1"
@@ -28,8 +30,11 @@ dagger-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-andro
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espressoCore" }
 dagger-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+androidx-arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "arch-core" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
