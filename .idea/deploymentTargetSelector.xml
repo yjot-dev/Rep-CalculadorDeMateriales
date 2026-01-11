@@ -8,6 +8,9 @@
       <SelectionState runConfigName="CalculatorNavigationTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="testNavigationAndCalculationFlow()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

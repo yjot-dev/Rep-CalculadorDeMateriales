@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Material Calculator</string>
+    <string name="theme_light">LIGHT\nTHEME</string>
+    <string name="theme_night">DARK\nTHEME</string>
+    <string name="button_pared">WALL</string>
+    <string name="button_piso">FLOOR</string>
+    <string name="button_modo">MODE</string>
+    <string name="tv_vacio">0</string>
+    <string name="tv_uno">CALCULATE NUMBER OF BRICKS FOR A WALL</string>
+    <string name="tv_dos">WALL\nHEIGHT (m)</string>
+    <string name="tv_tres">WALL\nLENGTH (m)</string>
+    <string name="tv_cuatro">JOINT\nTHICKNESS (m)</string>
+    <string name="rb_uno">BRICK</string>
+    <string name="rb_dos">BLOCK</string>
+    <string name="rb_tres">STRETCHER\nBOND</string>
+    <string name="rb_cuatro">SPANISH\nBOND</string>
+    <string name="tv_cinco">CALCULATE NUMBER OF TILES FOR THE FLOOR</string>
+    <string name="tv_seis">M^2 OF THE TILE\nBOX</string>
+    <string name="tv_siete">M^2 OF THE\nROOM</string>
+    <string name="tv_ocho">TILES PER\nBOX</string>
+    <string name="button_calcular">CALCULATE</string>
+    <string name="result_uno">YOU NEED %.0f %s FOR THE WALL</string>
+    <string name="result_dos">YOU NEED %.0f TILE BOXES\nEQUIVALENT TO %.0f TILES</string>
+</resources>
