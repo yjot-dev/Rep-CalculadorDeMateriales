@@ -14,7 +14,7 @@ import org.junit.Test
 import com.yjotdev.calculadordemateriales.application.mvvm.viewmodel.UiViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
-class UiViewModelTest {
+class ViewModelTest {
 
     // Configuramos el despachador de pruebas para corrutinas
     private val testDispatcher = StandardTestDispatcher()
