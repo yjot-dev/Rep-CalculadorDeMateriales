@@ -29,7 +29,8 @@ fun MainActivity.setupAppNavigation() {
 }
 
 fun MainActivity.toggleTheme() {
-    val saveState = this.getSharedPreferences("saveState", MODE_PRIVATE)
+    val context = this@toggleTheme
+    val saveState = context.getSharedPreferences("saveState", MODE_PRIVATE)
     val currentNightMode = AppCompatDelegate.getDefaultNightMode()
     val newMode = if (currentNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
         AppCompatDelegate.MODE_NIGHT_NO
@@ -43,7 +44,8 @@ fun MainActivity.toggleTheme() {
 }
 
 fun MainActivity.colorThemeManager() {
-    val saveState = this.getSharedPreferences("saveState", MODE_PRIVATE)
+    val context = this@colorThemeManager
+    val saveState = context.getSharedPreferences("saveState", MODE_PRIVATE)
     //Recupera preferencia
     val savedMode = saveState.getInt("theme", AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     AppCompatDelegate.setDefaultNightMode(savedMode)
