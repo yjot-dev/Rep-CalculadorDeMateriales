@@ -21,4 +21,6 @@
     <string name="button_calcular">CALCULATE</string>
     <string name="result_uno">YOU NEED %.0f %s FOR THE WALL</string>
     <string name="result_dos">YOU NEED %.0f TILE BOXES\nEQUIVALENT TO %.0f TILES</string>
+    <string name="toast_invalid_data">INVALID DATA</string>
+    <string name="toast_empty_fields">EMPTY FIELDS</string>
 </resources>

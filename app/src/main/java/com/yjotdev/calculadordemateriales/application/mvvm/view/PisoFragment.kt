@@ -13,9 +13,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlin.getValue
-import com.yjotdev.calculadordemateriales.R
 import com.yjotdev.calculadordemateriales.application.mvvm.viewmodel.UiViewModel
 import com.yjotdev.calculadordemateriales.databinding.FragmentPisoBinding
+import com.yjotdev.calculadordemateriales.R
+import com.yjotdev.calculadordemateriales.application.utils.Helper
 
 @AndroidEntryPoint
 class PisoFragment : Fragment() {
@@ -42,14 +43,23 @@ class PisoFragment : Fragment() {
             val m2DeCajaDeBaldosa = binding.editM2DeCajaBaldosas.text.toString()
             val m2DeLaHabitacion = binding.editM2DeLaHabitacion.text.toString()
             val baldosasPorCaja = binding.editBaldosasPorCaja.text.toString()
-            if(m2DeCajaDeBaldosa.isNotEmpty() && m2DeLaHabitacion.isNotEmpty() && baldosasPorCaja.isNotEmpty()){
-                viewModel.calculateTotalTiles(
-                    m2DeCajaDeBaldosa = m2DeCajaDeBaldosa.toFloat(),
-                    m2DeLaHabitacion = m2DeLaHabitacion.toFloat(),
-                    baldosasPorCaja = baldosasPorCaja.toFloat()
-                )
-            }else{
-                Toast.makeText(this.context, "EXISTEN CAMPOS VACIOS", Toast.LENGTH_SHORT).show()
+
+            context?.let { context ->
+                if(m2DeCajaDeBaldosa.isNotEmpty() && m2DeLaHabitacion.isNotEmpty() && baldosasPorCaja.isNotEmpty()){
+                    if (Helper.isValidNumber(m2DeCajaDeBaldosa)
+                        && Helper.isValidNumber(m2DeLaHabitacion)
+                        && Helper.isValidNumber(baldosasPorCaja)) {
+                        viewModel.calculateTotalTiles(
+                            m2DeCajaDeBaldosa = m2DeCajaDeBaldosa.toFloat(),
+                            m2DeLaHabitacion = m2DeLaHabitacion.toFloat(),
+                            baldosasPorCaja = baldosasPorCaja.toFloat()
+                        )
+                    }else {
+                        Toast.makeText(context, R.string.toast_invalid_data, Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    Toast.makeText(context, R.string.toast_empty_fields, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

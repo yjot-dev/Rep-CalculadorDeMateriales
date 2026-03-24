@@ -21,4 +21,6 @@
     <string name="button_calcular">CALCULAR</string>
     <string name="result_uno">SE NECESITA %.0f %s PARA LA PARED</string>
     <string name="result_dos">SE NECESITAN %.0f CAJAS DE BALDOSAS\nEQUIVALENTE A %.0f BALDOSAS</string>
+    <string name="toast_invalid_data">DATOS INVALIDOS</string>
+    <string name="toast_empty_fields">CAMPOS VACIOS</string>
 </resources>

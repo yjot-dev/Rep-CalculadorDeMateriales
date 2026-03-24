@@ -12,9 +12,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import com.yjotdev.calculadordemateriales.R
 import com.yjotdev.calculadordemateriales.application.mvvm.viewmodel.UiViewModel
 import com.yjotdev.calculadordemateriales.databinding.FragmentParedBinding
+import com.yjotdev.calculadordemateriales.R
+import com.yjotdev.calculadordemateriales.application.utils.Helper
 
 @AndroidEntryPoint
 class ParedFragment : Fragment() {
@@ -44,16 +45,24 @@ class ParedFragment : Fragment() {
             val isBrick = binding.rbLadrillo.isChecked
             val isRopeRigging = binding.rbAparejoSoga.isChecked
 
-            if(alturaPared.isNotEmpty() && largoPared.isNotEmpty() && espesorJuntas.isNotEmpty()){
-                viewModel.calculateTotalBricks(
-                    alturaDePared = alturaPared.toFloat(),
-                    largoDePared = largoPared.toFloat(),
-                    espesorDeJuntas = espesorJuntas.toFloat(),
-                    esLadrillo = isBrick,
-                    esAparejoSoga = isRopeRigging
-                )
-            }else{
-                Toast.makeText(this.context, "EXISTEN CAMPOS VACIOS", Toast.LENGTH_SHORT).show()
+            context?.let { context ->
+                if(alturaPared.isNotEmpty() && largoPared.isNotEmpty() && espesorJuntas.isNotEmpty()){
+                    if (Helper.isValidNumber(alturaPared)
+                        && Helper.isValidNumber(largoPared)
+                        && Helper.isValidNumber(espesorJuntas)) {
+                        viewModel.calculateTotalBricks(
+                            alturaDePared = alturaPared.toFloat(),
+                            largoDePared = largoPared.toFloat(),
+                            espesorDeJuntas = espesorJuntas.toFloat(),
+                            esLadrillo = isBrick,
+                            esAparejoSoga = isRopeRigging
+                        )
+                    }else {
+                        Toast.makeText(context, R.string.toast_invalid_data, Toast.LENGTH_SHORT).show()
+                    }
+                }else{
+                    Toast.makeText(context, R.string.toast_empty_fields, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
