@@ -11,12 +11,12 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Before
 import org.junit.Test
-import com.yjotdev.calculadordemateriales.application.mvvm.viewmodel.UiViewModel
+import com.yjotdev.calculadordemateriales.presentation.mvvm.viewmodel.UiViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class ViewModelTest {
 
-    // Configuramos el despachador de pruebas para corrutinas
+    // Configuramos el despachador de pruebas
     private val testDispatcher = StandardTestDispatcher()
 
     private lateinit var viewModel: UiViewModel
@@ -60,8 +60,8 @@ class ViewModelTest {
         val result = viewModel.uiState.value
 
         // Cálculo manual esperado:
-        // Area Pared = 12
-        // Area Ladrillo con junta = (0.34 + 0.015) * (0.25 + 0.015) = 0.355 * 0.265 = 0.094075
+        // Área Pared = 12
+        // Área Ladrillo con junta = (0.34 + 0.015) * (0.25 + 0.015) = 0.355 * 0.265 = 0.094075
         // Total = 12 / 0.094075 ≈ 127.55
 
         assertEquals("LADRILLOS", result.typeBrick)
@@ -85,9 +85,9 @@ class ViewModelTest {
         val result = viewModel.uiState.value
 
         // Cálculo esperado según lógica del ViewModel:
-        // Area Pared = 15
+        // Área Pared = 15
         // Bloque no soga -> ancho=0.07, alto=0.20
-        // Area unidad = (0.07 + 0.01) * (0.20 + 0.01) = 0.08 * 0.21 = 0.0168
+        // Área unidad = (0.07 + 0.01) * (0.20 + 0.01) = 0.08 * 0.21 = 0.0168
         // Total = 15 / 0.0168 ≈ 892.85
 
         assertEquals("BLOQUES", result.typeBrick)

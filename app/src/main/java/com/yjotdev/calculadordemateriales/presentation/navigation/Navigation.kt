@@ -1,4 +1,4 @@
-package com.yjotdev.calculadordemateriales.application.navigation
+package com.yjotdev.calculadordemateriales.presentation.navigation
 
 import android.content.Context.MODE_PRIVATE
 import androidx.appcompat.app.AppCompatDelegate

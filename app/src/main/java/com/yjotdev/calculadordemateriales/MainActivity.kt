@@ -11,8 +11,8 @@ import androidx.core.view.WindowCompat
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.yjotdev.calculadordemateriales.application.navigation.colorThemeManager
-import com.yjotdev.calculadordemateriales.application.navigation.setupAppNavigation
+import com.yjotdev.calculadordemateriales.presentation.navigation.colorThemeManager
+import com.yjotdev.calculadordemateriales.presentation.navigation.setupAppNavigation
 import com.yjotdev.calculadordemateriales.databinding.ActivityMainBinding
 
 @AndroidEntryPoint

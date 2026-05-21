@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:rowCount="7"
     android:columnCount="2"
-    tools:context=".application.mvvm.view.ParedFragment">
+    tools:context=".presentation.mvvm.ui.ParedFragment">
 
     <TextView
         android:layout_columnSpan="2"

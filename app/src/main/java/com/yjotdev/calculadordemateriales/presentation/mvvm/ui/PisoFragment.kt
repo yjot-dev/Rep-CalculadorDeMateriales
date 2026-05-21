@@ -1,4 +1,4 @@
-package com.yjotdev.calculadordemateriales.application.mvvm.view
+package com.yjotdev.calculadordemateriales.presentation.mvvm.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,10 +13,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlin.getValue
-import com.yjotdev.calculadordemateriales.application.mvvm.viewmodel.UiViewModel
+import com.yjotdev.calculadordemateriales.presentation.mvvm.viewmodel.UiViewModel
 import com.yjotdev.calculadordemateriales.databinding.FragmentPisoBinding
 import com.yjotdev.calculadordemateriales.R
-import com.yjotdev.calculadordemateriales.application.utils.Helper
+import com.yjotdev.calculadordemateriales.presentation.utils.Helper
 
 @AndroidEntryPoint
 class PisoFragment : Fragment() {

@@ -39,7 +39,6 @@ class CalculatorNavigationTest {
         // ===============================================================
 
         // Verificamos que estamos en la vista de Pared (buscando un elemento único)
-        // Asumo que el EditText de altura tiene id 'etAltura' o similar. Ajusta según tu XML.
         onView(withId(R.id.editAltura)).check(matches(isDisplayed()))
 
         // Ingresamos datos para calcular ladrillos
@@ -59,24 +58,19 @@ class CalculatorNavigationTest {
         onView(withId(R.id.btnCalcular)).perform(click())
 
         // Verificamos que se muestre un resultado
-        // Buscamos el TextView de resultados (ej. txtResultBricks)
         // Verificamos que no esté vacío o contenga texto esperado
         onView(withId(R.id.result))
             .check(matches(isDisplayed()))
-
 
         // ===============================================================
         // 2. NAVEGACIÓN: IR A PISO FRAGMENT
         // ===============================================================
 
         // Hacemos clic en el ítem del menú inferior correspondiente a Piso
-        // El ID debe coincidir con el item en tu 'bottom_menu.xml' (ej. @id/pisoFragment)
         onView(withId(R.id.pisoFragment)).perform(click())
 
         // Verificamos que la vista cambió buscando un elemento único de PisoFragment
-        // Ej. El input de metros cuadrados de la habitación
         onView(withId(R.id.editM2DeLaHabitacion)).check(matches(isDisplayed()))
-
 
         // ===============================================================
         // 3. ESCENARIO: PISO FRAGMENT
@@ -97,17 +91,11 @@ class CalculatorNavigationTest {
 
         // Clic en Calcular
         // Nota: Si el ID del botón es el mismo en ambos fragments (btnCalcular),
-        // Espresso usará el que esté visible actualmente.
         onView(withId(R.id.btnCalcular)).perform(click())
 
         // Verificamos el resultado
-        // Ejemplo: 20 / 1.5 = 13.33 -> 14 cajas.
-        // Verificamos que el TextView de resultado contenga algo relacionado a cajas
         onView(withId(R.id.result))
             .check(matches(isDisplayed()))
-        // Opcional: Verificar texto específico si sabes el resultado exacto
-        // .check(matches(withText(containsString("14"))))
-
 
         // ===============================================================
         // 4. RETORNO: VOLVER A PARED

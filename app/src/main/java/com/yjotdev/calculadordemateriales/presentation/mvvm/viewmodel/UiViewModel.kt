@@ -1,4 +1,4 @@
-package com.yjotdev.calculadordemateriales.application.mvvm.viewmodel
+package com.yjotdev.calculadordemateriales.presentation.mvvm.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -7,13 +7,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import javax.inject.Inject
-import com.yjotdev.calculadordemateriales.application.mvvm.model.UiModel
+import com.yjotdev.calculadordemateriales.presentation.mvvm.state.UiState
 
 @HiltViewModel
 class UiViewModel @Inject constructor(): ViewModel() {
 
-    private val _uiState = MutableStateFlow(UiModel())
-    val uiState: StateFlow<UiModel> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(UiState())
+    val uiState: StateFlow<UiState> = _uiState.asStateFlow()
 
     override fun onCleared() {
         super.onCleared()
@@ -23,7 +23,7 @@ class UiViewModel @Inject constructor(): ViewModel() {
      * Limpia el estado del ViewModel
      **/
     fun cleanState() {
-        _uiState.value = UiModel()
+        _uiState.value = UiState()
     }
     /**
      * Calcula la cantidad de ladrillos o bloques necesarios
@@ -38,8 +38,8 @@ class UiViewModel @Inject constructor(): ViewModel() {
         var alturaLadrillo: Float
         var largoLadrillo: Float
         var anchoLadrillo: Float
-        var nombreObjeto = ""
-        var totalCantidadDeLadrillos = 0f
+        var nombreObjeto: String
+        var totalCantidadDeLadrillos: Float
 
         if(esLadrillo){
             nombreObjeto = "LADRILLOS"

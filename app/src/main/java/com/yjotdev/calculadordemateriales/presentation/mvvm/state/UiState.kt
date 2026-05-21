@@ -1,6 +1,6 @@
-package com.yjotdev.calculadordemateriales.application.mvvm.model
+package com.yjotdev.calculadordemateriales.presentation.mvvm.state
 
-data class UiModel(
+data class UiState(
     // Resultados para ParedFragment
     val totalBricks: Float = 0f, // total de ladrillos o bloques
     val typeBrick: String = "", // tipo de ladrillo o bloque

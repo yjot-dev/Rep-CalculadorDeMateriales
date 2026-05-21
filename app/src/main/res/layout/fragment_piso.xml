@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:rowCount="6"
     android:columnCount="2"
-    tools:context=".application.mvvm.view.PisoFragment">
+    tools:context=".presentation.mvvm.ui.PisoFragment">
 
     <TextView
         android:layout_columnSpan="2"
