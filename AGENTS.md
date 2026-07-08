@@ -10,12 +10,12 @@
 El proyecto utiliza las siguientes tecnologías y patrones:
 - **Lenguaje:** Kotlin
 - **UI:** Sistema de Vistas (XML) con Material 3
-- **Arquitectura:** MVVM Simple
+- **Arquitectura:** MVVM
 - **Gestión de Estado:** ViewModel + StateFlow
 - **Inyección de Dependencias:** Hilt
 - **Compatibilidad:** Android 7.0 (API 24) en adelante
 
-## 3. ESTRUCTURA DEL PROYECTO (MVVM Simple)
+## 3. ESTRUCTURA DEL PROYECTO (MVVM)
 Se debe seguir estrictamente la siguiente organización de directorios para la arquitectura MVVM Simple:
 
 - **`presentation`** (Capa de Presentación)
@@ -43,7 +43,6 @@ Se debe seguir estrictamente la siguiente organización de directorios para la a
 ## 5. RESTRICCIONES CRÍTICAS (PROHIBICIONES)
 - **Dependencias:** No añadir ni actualizar dependencias en `build.gradle` o `libs.versions.toml` sin avisar previamente.
 - **Security:** **NUNCA** incluir ni subir al repositorio remoto los siguientes archivos:
-    - `.gitignore`
     - `local.properties`
     - `custom.properties`
 
