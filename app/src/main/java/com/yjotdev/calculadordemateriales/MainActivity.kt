@@ -2,17 +2,9 @@ package com.yjotdev.calculadordemateriales
 
 import dagger.hilt.android.AndroidEntryPoint
 import android.os.Bundle
-import android.graphics.Color
-import android.os.Build
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.activity.SystemBarStyle
-import androidx.core.view.WindowCompat
-import androidx.activity.enableEdgeToEdge
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowInsetsControllerCompat
 import com.yjotdev.calculadordemateriales.presentation.navigation.colorThemeManager
-import com.yjotdev.calculadordemateriales.presentation.navigation.setupAppNavigation
+import com.yjotdev.calculadordemateriales.presentation.navigation.setupNavigation
 import com.yjotdev.calculadordemateriales.databinding.ActivityMainBinding
 
 @AndroidEntryPoint
@@ -22,35 +14,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Aplicar tema
-        colorThemeManager()
-        // Ajusta la vista a toda la pantalla
-        viewEdgeToEdge()
         // Configura la IU de la actividad
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Navagacion entre fragmentos
-        setupAppNavigation()
-    }
-
-    private fun viewEdgeToEdge(){
-        enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.auto(
-                lightScrim = Color.TRANSPARENT,
-                darkScrim = Color.TRANSPARENT
-            ),
-            navigationBarStyle = SystemBarStyle.auto(
-                lightScrim = Color.TRANSPARENT,
-                darkScrim = Color.TRANSPARENT
-            )
-        )
-        WindowCompat.getInsetsController(window, window.decorView).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.systemBars())
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            window.attributes.layoutInDisplayCutoutMode =
-                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
-        }
+        // Configura la navegación, bottomMenu y edge-to-edge
+        setupNavigation()
+        // Aplicar tema
+        colorThemeManager()
     }
 }
