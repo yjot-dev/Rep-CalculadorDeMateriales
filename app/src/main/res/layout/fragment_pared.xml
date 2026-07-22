@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="@dimen/short1_dp"
     android:rowCount="7"
     android:columnCount="2"
     tools:context=".presentation.mvvm.ui.ParedFragment">
@@ -60,8 +61,8 @@
     <RadioGroup
         android:layout_column="0"
         android:layout_row="4"
-        android:layout_marginTop="@dimen/short2_dp"
-        android:layout_marginStart="@dimen/short3_dp"
+        android:layout_marginTop="@dimen/short1_dp"
+        android:layout_marginStart="@dimen/short2_dp"
         android:layout_gravity="start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -78,8 +79,8 @@
     <RadioGroup
         android:layout_column="1"
         android:layout_row="4"
-        android:layout_marginTop="@dimen/short2_dp"
-        android:layout_marginEnd="@dimen/short3_dp"
+        android:layout_marginTop="@dimen/short1_dp"
+        android:layout_marginEnd="@dimen/short2_dp"
         android:layout_gravity="end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

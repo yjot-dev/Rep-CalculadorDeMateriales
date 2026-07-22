@@ -3,7 +3,7 @@ package com.yjotdev.calculadordemateriales
 import dagger.hilt.android.AndroidEntryPoint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.yjotdev.calculadordemateriales.presentation.navigation.colorThemeManager
+import androidx.appcompat.app.AppCompatDelegate
 import com.yjotdev.calculadordemateriales.presentation.navigation.setupNavigation
 import com.yjotdev.calculadordemateriales.databinding.ActivityMainBinding
 
@@ -20,6 +20,6 @@ class MainActivity : AppCompatActivity() {
         // Configura la navegación, bottomMenu y edge-to-edge
         setupNavigation()
         // Aplicar tema
-        colorThemeManager()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
     }
 }

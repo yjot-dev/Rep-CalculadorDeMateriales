@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="short1_dp">0dp</dimen>
-    <dimen name="short2_dp">20dp</dimen>
-    <dimen name="short3_dp">40dp</dimen>
+    <dimen name="short1_dp">20dp</dimen>
+    <dimen name="short2_dp">40dp</dimen>
 </resources>
