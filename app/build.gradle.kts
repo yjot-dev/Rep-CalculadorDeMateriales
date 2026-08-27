@@ -83,10 +83,8 @@ dependencies {
     //Test
     testImplementation(libs.junit)
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.androidx.arch.core.testing)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.espresso.contrib)
     androidTestImplementation(libs.dagger.hilt.android.testing)
     kspAndroidTest(libs.dagger.hilt.android.compiler)
 }
