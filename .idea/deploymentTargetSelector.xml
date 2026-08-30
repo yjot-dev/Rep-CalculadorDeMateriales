@@ -8,6 +8,7 @@
       </SelectionState>
       <SelectionState runConfigName="CalculatorNavigationTest">
         <option name="selectionMode" value="DROPDOWN" />
+        <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="testNavigationAndCalculationFlow()">
         <option name="selectionMode" value="DROPDOWN" />
