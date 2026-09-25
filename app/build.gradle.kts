@@ -1,21 +1,23 @@
+import com.android.build.api.dsl.ApplicationExtension
+
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "com.yjotdev.calculadordemateriales"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.yjotdev.calculadordemateriales"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 5
         versionName = "1.5"
         testInstrumentationRunner = "com.yjotdev.calculadordemateriales.CustomTestRunner"
+        androidResources.localeFilters += setOf("en", "es")
     }
     signingConfigs {
         create("release") {
@@ -47,9 +49,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
-    kotlinOptions {
-        jvmTarget = "21"
-    }
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -61,6 +60,9 @@ android {
         jniLibs {
             useLegacyPackaging = false
         }
+    }
+    testOptions {
+        animationsDisabled = true
     }
 }
 
