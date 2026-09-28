@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CalculadorDeMateriales"
+rootProject.name = "CdM"
 include(":app")
