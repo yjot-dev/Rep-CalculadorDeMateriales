@@ -34,7 +34,7 @@ El flujo de uso de la aplicación ha sido diseñado para ser intuitivo y funcion
 En resumen, CdM es una solución práctica y directa que responde a una necesidad clave en el sector de la construcción. Su diseño enfocado en la usabilidad permite a cualquier persona, independientemente de su experiencia técnica, obtener estimaciones rápidas y precisas, optimizando la planificación y la compra de materiales de manera efectiva.
 
 # Ver video Demo
-[Ver en Youtube](https://youtu.be/ZXCB118Kv2M)
+[Ver en Youtube](https://youtu.be/MDJEi7xUwb8)
 
 # Contribución
 - Haz un fork del repositorio
